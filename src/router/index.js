@@ -10,6 +10,7 @@ import Layout from '@/views/layout/Layout'
 import componentsRouter from './modules/components'
 import chartsRouter from './modules/charts'
 import tableRouter from './modules/table'
+import userRouter from './modules/user'
 import treeTableRouter from './modules/tree-table'
 import nestedRouter from './modules/nested'
 
@@ -33,7 +34,7 @@ import nestedRouter from './modules/nested'
     affix: true                  if true, the tag will affix in the tags-view
   }
 **/
-export const constantRoutes = [
+export const constantRouterMap = [
   {
     path: '/redirect',
     component: Layout,
@@ -81,6 +82,7 @@ export const constantRoutes = [
   {
     path: '/documentation',
     component: Layout,
+    redirect: '/documentation/index',
     children: [
       {
         path: 'index',
@@ -108,10 +110,10 @@ export const constantRoutes = [
 export default new Router({
   // mode: 'history', // require service support
   scrollBehavior: () => ({ y: 0 }),
-  routes: constantRoutes
+  routes: constantRouterMap
 })
 
-export const asyncRoutes = [
+export const asyncRouterMap = [
   {
     path: '/permission',
     component: Layout,
@@ -140,15 +142,6 @@ export const asyncRoutes = [
           title: 'directivePermission'
           // if do not set roles, means: this page does not require permission
         }
-      },
-      {
-        path: 'role',
-        component: () => import('@/views/permission/role'),
-        name: 'RolePermission',
-        meta: {
-          title: 'rolePermission',
-          roles: ['admin']
-        }
       }
     ]
   },
@@ -167,6 +160,7 @@ export const asyncRoutes = [
   },
 
   /** When your routing table is too long, you can split it into small modules**/
+  userRouter,
   componentsRouter,
   chartsRouter,
   nestedRouter,
@@ -278,12 +272,6 @@ export const asyncRoutes = [
         component: () => import('@/views/excel/selectExcel'),
         name: 'SelectExcel',
         meta: { title: 'selectExcel' }
-      },
-      {
-        path: 'export-merge-header',
-        component: () => import('@/views/excel/mergeHeader'),
-        name: 'MergeHeader',
-        meta: { title: 'mergeHeader' }
       },
       {
         path: 'upload-excel',

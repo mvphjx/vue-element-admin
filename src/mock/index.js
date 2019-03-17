@@ -3,8 +3,7 @@ import loginAPI from './login'
 import articleAPI from './article'
 import remoteSearchAPI from './remoteSearch'
 import transactionAPI from './transaction'
-import roleAPI from './role'
-
+import userAPI from './user'
 // 修复在使用 MockJS 情况下，设置 withCredentials = true，且未被拦截的跨域请求丢失 Cookies 的问题
 // https://github.com/nuysoft/Mock/issues/300
 Mock.XHR.prototype.proxy_send = Mock.XHR.prototype.send
@@ -24,13 +23,6 @@ Mock.mock(/\/login\/login/, 'post', loginAPI.loginByUsername)
 Mock.mock(/\/login\/logout/, 'post', loginAPI.logout)
 Mock.mock(/\/user\/info\.*/, 'get', loginAPI.getUserInfo)
 
-// 角色相关
-Mock.mock(/\/routes/, 'get', roleAPI.getRoutes)
-Mock.mock(/\/roles/, 'get', roleAPI.getRoles)
-Mock.mock(/\/roles$/, 'post', roleAPI.addRole)
-Mock.mock(/\/roles\/[A-Za-z0-9]+/, 'put', roleAPI.updateRole)
-Mock.mock(/\/roles\/[A-Za-z0-9]+/, 'delete', roleAPI.deleteRole)
-
 // 文章相关
 Mock.mock(/\/article\/list/, 'get', articleAPI.getList)
 Mock.mock(/\/article\/detail/, 'get', articleAPI.getArticle)
@@ -43,5 +35,12 @@ Mock.mock(/\/search\/user/, 'get', remoteSearchAPI.searchUser)
 
 // 账单相关
 Mock.mock(/\/transaction\/list/, 'get', transactionAPI.getList)
+
+// user
+Mock.mock(/\/user\/list/, 'get', userAPI.getList)
+Mock.mock(/\/user\/detail/, 'get', userAPI.getArticle)
+Mock.mock(/\/user\/pv/, 'get', userAPI.getPv)
+Mock.mock(/\/user\/create/, 'post', userAPI.createArticle)
+Mock.mock(/\/user\/update/, 'post', userAPI.updateArticle)
 
 export default Mock

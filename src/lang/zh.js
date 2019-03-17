@@ -134,6 +134,9 @@ export default {
     draft: '草稿',
     delete: '删除',
     cancel: '取 消',
+    createTime: '创建时间',
+    userName: '用户名',
+    roleName: '角色名称',
     confirm: '确 定'
   },
   errorLog: {
