@@ -8,7 +8,7 @@ const userRouter = {
   redirect: 'noredirect',
   name: 'user',
   meta: {
-    title: '用户管理',
+    title: 'usermenu',
     icon: 'lock',
     roles: ['admin'] // you can set roles in root nav
   },
@@ -17,31 +17,31 @@ const userRouter = {
       path: 'usermgr',
       component: () => import('@/views/abispage/user/usermgr'),
       name: 'usermgr',
-      meta: { title: '人员管理', icon: 'dashboard', noCache: true }
+      meta: { title: 'usermgr', icon: 'dashboard', noCache: true }
     },
     {
       path: 'classmgr',
       component: () => import('@/views/abispage/user/classmgr'),
       name: 'classmgr',
-      meta: { title: '班级管理', icon: 'dashboard', noCache: true }
+      meta: { title: 'classmgr', icon: 'dashboard', noCache: true }
     },
     {
       path: 'rolemgr',
       component: () => import('@/views/abispage/user/rolemgr'),
       name: 'rolemgr',
-      meta: { title: '角色管理', icon: 'dashboard', noCache: true }
+      meta: { title: 'rolemgr', icon: 'dashboard', noCache: true }
     },
     {
       path: 'countUp',
       component: () => import('@/views/components-demo/countUp.vue'),
       name: 'countUp',
-      meta: { title: '组件测试', icon: 'dashboard', noCache: true }
+      meta: { title: 'countUp', icon: 'dashboard', noCache: true }
     },
     {
       path: 'trainmgr',
       component: () => import('@/views/abispage/user/trainmgr'),
       name: 'trainmgr',
-      meta: { title: '学员培训情况', icon: 'dashboard', noCache: true }
+      meta: { title: 'trainmgr', icon: 'dashboard', noCache: true }
     }
   ]
 }

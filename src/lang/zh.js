@@ -65,6 +65,12 @@ export default {
     theme: '换肤',
     clipboardDemo: 'Clipboard',
     i18n: '国际化',
+    usermgr: '人员管理',
+    classmgr: '班级管理',
+    rolemgr: '角色管理',
+    countUp: '组件测试',
+    trainmgr: '学员培训情况',
+    usermenu: '用户管理',
     externalLink: '外链'
   },
   navbar: {
