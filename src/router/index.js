@@ -11,6 +11,7 @@ import componentsRouter from './modules/components'
 import chartsRouter from './modules/charts'
 import tableRouter from './modules/table'
 import userRouter from './modules/user'
+import testRouter from './modules/test'
 import treeTableRouter from './modules/tree-table'
 import nestedRouter from './modules/nested'
 
@@ -113,6 +114,7 @@ export default new Router({
 })
 
 export const asyncRoutes = [
+  testRouter,
   userRouter,
   {
     path: '/permission',

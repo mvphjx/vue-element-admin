@@ -32,12 +32,6 @@ const userRouter = {
       meta: { title: 'rolemgr', icon: 'dashboard', noCache: true }
     },
     {
-      path: 'countUp',
-      component: () => import('@/views/components-demo/countUp.vue'),
-      name: 'countUp',
-      meta: { title: 'countUp', icon: 'dashboard', noCache: true }
-    },
-    {
       path: 'trainmgr',
       component: () => import('@/views/abispage/user/trainmgr'),
       name: 'trainmgr',
