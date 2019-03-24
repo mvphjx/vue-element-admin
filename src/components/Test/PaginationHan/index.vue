@@ -127,7 +127,6 @@ export default {
     background: #000;
     color : #ffffff;
   }
-  // 子元素选1择不生效1
-  .pagination li :hover > a{color : #ffffff;}
+  .pagination li :hover > a{color : #ffffff;}/*子元素选择不生效*/
 
 </style>
