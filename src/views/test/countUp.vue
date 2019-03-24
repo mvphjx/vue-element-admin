@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import countTo from '@/components/CountUp'
+import countTo from '@/components/test/CountUp'
 export default {
   components: { countTo },
   data() {
@@ -28,6 +28,7 @@ export default {
       this.start = 0
       console.log(countTo)
       console.log(this.$refs.child)
+      // 调用子组件的方法
       this.$refs.child.initCountUp()
       // countTo.initCountUp()
     }

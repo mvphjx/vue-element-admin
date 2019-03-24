@@ -15,7 +15,7 @@ const testRouter = {
   children: [
     {
       path: 'countUp',
-      component: () => import('@/views/components-demo/countUp.vue'),
+      component: () => import('@/views/test/countUp.vue'),
       name: 'countUp',
       meta: { title: 'countUp', icon: 'dashboard', noCache: true }
     },

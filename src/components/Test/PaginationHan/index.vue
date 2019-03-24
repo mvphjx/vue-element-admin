@@ -3,11 +3,9 @@
     <ul class="pagination">
       <li :class="{'disabled': current === 1}"><a href="javascript:" @click="setCurrent(current - 1)"> « </a></li>
       <li :class="{'disabled': current === 1}"><a href="javascript:" @click="setCurrent(1)"> 首页 </a></li>
-      <li v-for="p in grouplist" :key="p.val" :class="{'active': current === p.val}"><a
-        href="javascript:"
-        @click="setCurrent(p.val)"
-      > {{
-        p.text }} </a></li>
+      <li v-for="p in grouplist" :key="p.val" :class="{'active': current === p.val}">
+        <a href="javascript:" @click="setCurrent(p.val)"> {{ p.text }} </a>
+      </li>
       <li :class="{'disabled': current === page}"><a href="javascript:" @click="setCurrent(page)"> 尾页 </a></li>
       <li :class="{'disabled': current === page}"><a href="javascript:" @click="setCurrent(current + 1)"> »</a></li>
     </ul>
@@ -16,7 +14,8 @@
 
 <script>
 export default {
-  props: {
+
+  props: {// 接收父组件传来的参数
     total: {// 数据总条数
       type: Number,
       default: 0
@@ -84,6 +83,7 @@ export default {
     setCurrent: function(idx) {
       if (this.current !== idx && idx > 0 && idx < this.page + 1) {
         this.current = idx
+        // 页码改变 通知父组件
         this.$emit('pagechange', this.current)
       }
     }
@@ -91,45 +91,43 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style>
+
   .pagination {
     overflow: hidden;
     display: table;
     margin: 0 auto;
-    /*width: 100%;*/
     height: 50px;
-    li {
-      float: left;
-      height: 30px;
-      border-radius: 5px;
-      margin: 3px;
-      color: #666;
-      &
-      :hover {
-        background: #000;
-        a {
-          color: #fff;
-        }
-      }
-      a {
-        display: block;
-        width: 30px;
-        height: 30px;
-        text-align: center;
-        line-height: 30px;
-        font-size: 12px;
-        border-radius: 5px;
-        text-decoration: none
-      }
-    }
-    .active {
-      background: #000;
-
-      a {
-        color: #fff;
-      }
-
-    }
   }
+  .pagination .active{
+    background: #000;
+  }
+  .pagination .active a{
+    color: #fff;
+  }
+  .pagination li{
+    list-style-type: none;
+    float: left;
+    height: 30px;
+    border-radius: 5px;
+    margin: 3px;
+    color: #666;
+  }
+  .pagination li a {
+    display: block;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 12px;
+    border-radius: 5px;
+    text-decoration: none
+  }
+  .pagination li :hover {
+    background: #000;
+    color : #ffffff;
+  }
+  // 子元素选1择不生效1
+  .pagination li :hover > a{color : #ffffff;}
 
 </style>

@@ -6,7 +6,7 @@
 import { CountUp } from './countUp.js'
 export default {
   name: 'CountupDemo',
-  props: {
+  props: {// 接收父组件的参数
     end: {
       type: Number,
       required: true

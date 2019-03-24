@@ -1,6 +1,11 @@
 
 <template>
-  <v-pagination :total="total" :current-page="current" @pagechange="pagechange" />
+  <div>
+    <v-pagination ref="pagination" :total="total" :current-page="current" @pagechange="pagechange" />
+    <div>
+      <el-button type="primary" @click="jump">跳转到第7页</el-button>
+    </div>
+  </div>
 </template>
 
 <script type="es6">
@@ -18,8 +23,11 @@ export default {
   },
   methods: {
     pagechange: function(currentPage) {
-      console.log(currentPage)
-      // ajax请求, 向后台发送 currentPage, 来获取对应的数据
+      console.log('监听子组件的状态：', currentPage, '，ajax请求获取翻页后数据')
+    },
+    jump: function() {
+      // 调用子组件的方法
+      this.$refs.pagination.setCurrent(7)
     }
   }
 }
