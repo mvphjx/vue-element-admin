@@ -2,7 +2,7 @@ import Vue from 'vue'
 import store from './store'
 
 // you can set only in production env show the error-log
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'development') {
   Vue.config.errorHandler = function(err, vm, info, a) {
   // Don't ask me why I use Vue.nextTick, it just a hack.
   // detail see https://forum.vuejs.org/t/dispatch-in-vue-config-errorhandler-has-some-problem/23500
@@ -13,6 +13,7 @@ if (process.env.NODE_ENV === 'production') {
         info,
         url: window.location.href
       })
+      console.error('开始错误收集')
       console.error(err, info)
     })
   }
